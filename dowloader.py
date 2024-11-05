@@ -1,13 +1,15 @@
 from pytube import YouTube
 
-while True:
+def input_url():
     url = input("Enter url: ")
     try:
         yt = YouTube(url)
-        break
+        return yt
     except:
         print('\nError\n')
+        input_url()
 
+yt = input_url()
 print('\nAuthor: ', yt.author)
 print('Title: ', yt.title)
 print('Views: ', yt.views)
